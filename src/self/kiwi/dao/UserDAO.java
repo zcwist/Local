@@ -22,24 +22,25 @@ public class UserDAO extends MongoWrapper {
 		coll.insert(user.getUserobj());
 
 	}
-	public boolean checkUser(String username, String password){
+	public int checkUser(String username, String password){
 		DBCollection coll = db.getCollection(COLLNAME);
 		BasicDBObject query = new BasicDBObject("username", username);
 		DBCursor cursor = coll.find(query);
 		if (!cursor.hasNext()){ //this user doesn't exist
-			insertUser (new User(username,password));
-			return true;
+			cursor.close();
+			return -1;	// 
 		} else{
 			while (cursor.hasNext()){
 				BasicDBObject usrobj = (BasicDBObject) cursor.next();
 				if (password == usrobj.getString("password")){
-					return true;
+					cursor.close();
+					return 1; //verification succeed
 				}
 			}
 		}
-		
-		return false;
-		
+		cursor.close();
+		return 0; //verification fail
 	}
+
 
 }

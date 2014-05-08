@@ -4,24 +4,30 @@ import java.util.Date;
 
 import com.mongodb.BasicDBObject;
 
-public class GeneralItem {
-	private float longitue;
-	private float latitude;
-	private Date date;
-	public BasicDBObject itemObj;
-	
-	public float getLongitue() {
-		return longitue;
+public abstract class GeneralItem {
+	protected String id;
+	protected float longitude;
+	protected float latitude;
+	protected long date;
+	protected int hearts; //number of like it!
+	protected int remarkNum; // number of remarks
+	protected BasicDBObject itemObj;
+	public GeneralItem(float longitude, float latitude) {
+		super();
+		this.longitude = longitude;
+		this.latitude = latitude;
+		this.date = new Date().getTime();
+		itemObj = new BasicDBObject().append("longitude", longitude)
+						.append("latitude", latitude)
+						.append("date", date)
+						.append("hearts", 0)
+						.append("remarkNum", 0);
+		
 	}
-	public float getLatitude() {
-		return latitude;
-	}
-	public Date getDate() {
-		return date;
-	}
-	public BasicDBObject getItemObj() {
+	public BasicDBObject getItemObj(){
 		return itemObj;
 	}
 	
-
+	
+	
 }
