@@ -1,5 +1,9 @@
 
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.Date;
 
@@ -14,11 +18,11 @@ public class Test {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		new Test().printDate();
+		new Test().writeFile();
 
 	}
 	
-	private void addUser(){
+	public void addUser(){
 		User user = new User("kiwi", "112358");
 		try {
 			UserDAO mongo = new UserDAO();
@@ -29,7 +33,7 @@ public class Test {
 		}
 	}
 	
-	private void checkUser(){
+	public void checkUser(){
 		try {
 			UserDAO mongo = new UserDAO();
 			System.out.println(mongo.checkUser("kiwi2", "11235"));
@@ -37,8 +41,20 @@ public class Test {
 			e.printStackTrace();
 		}
 	}
-	private void printDate(){
+	public void printDate(){
 		System.out.println(new Date().getTime());
+	}
+	
+	public void writeFile(){
+		File file = new File("hello.txt");
+		try {
+			BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+			writer.write("Hello World!");
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

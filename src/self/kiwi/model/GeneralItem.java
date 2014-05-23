@@ -11,6 +11,7 @@ public abstract class GeneralItem {
 	protected long date;
 	protected int hearts; //number of like it!
 	protected int remarkNum; // number of remarks
+	protected String type;
 	protected BasicDBObject itemObj;
 	public GeneralItem(float longitude, float latitude) {
 		super();

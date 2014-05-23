@@ -8,7 +8,7 @@ public class TextItem extends GeneralItem {
 		super(longitue, latitude);
 		// TODO Auto-generated constructor stub
 		this.textContent = textContext;
-		itemObj.append("textContent", textContent);
+		itemObj.append("type", "Text").append("textContent", textContent);
 	}
 
 

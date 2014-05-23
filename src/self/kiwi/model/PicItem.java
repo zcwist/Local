@@ -7,7 +7,7 @@ public class PicItem extends GeneralItem {
 		super(longitude, latitude);
 		// TODO Auto-generated constructor stub
 		this.picURL = picURL;
-		itemObj.append("picURL", picURL);
+		itemObj.append("type", "Pic").append("picURL", picURL);
 	}
 
 }

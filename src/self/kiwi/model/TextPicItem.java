@@ -7,7 +7,7 @@ public class TextPicItem extends TextItem {
 		super(longitue, latitude, textContext);
 		// TODO Auto-generated constructor stub
 		this.picURL = picURL;
-		itemObj.append("picURL", picURL);
+		itemObj.append("type", "TextPic").append("picURL", picURL);
 	}
 
 }
