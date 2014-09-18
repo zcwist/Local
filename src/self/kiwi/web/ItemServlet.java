@@ -112,9 +112,5 @@ public class ItemServlet extends HttpServlet {
 	public void init() throws ServletException {
 		// Put your code here
 	}
-	
-	private String generatePicFile(String byFile){
-		
-	}
 
 }
